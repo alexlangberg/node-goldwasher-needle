@@ -1,3 +1,58 @@
 # node-goldwasher-needle
+[![npm version](http://img.shields.io/npm/v/node-goldwasher-needle.svg)](https://www.npmjs.org/package/node-goldwasher-needle)
+[![Build Status](http://img.shields.io/travis/alexlangberg/node-goldwasher-needle.svg)](https://travis-ci.org/alexlangberg/node-goldwasher-needle)
+[![Coverage Status](http://img.shields.io/coveralls/alexlangberg/node-goldwasher-needle.svg)](https://coveralls.io/r/alexlangberg/node-goldwasher-needle?branch=master)
+[![Code Climate](http://img.shields.io/codeclimate/github/alexlangberg/node-goldwasher-needle.svg)](https://codeclimate.com/github/alexlangberg/node-goldwasher-needle)
 
-Goldwasher plugin to add needle for easy HTTP requests.
+[![Dependency Status](https://david-dm.org/alexlangberg/node-goldwasher-needle.svg)](https://david-dm.org/alexlangberg/node-goldwasher-needle)
+[![devDependency Status](https://david-dm.org/alexlangberg/node-goldwasher-needle/dev-status.svg)](https://david-dm.org/alexlangberg/node-goldwasher-needle#info=devDependencies)
+
+Plugin for [goldwasher](https://www.npmjs.org/package/goldwasher) to add [needle](https://www.npmjs.org/package/needle) for easy HTTP requests. Requires [goldwasher](https://www.npmjs.org/package/goldwasher) to work.
+
+## Installation
+```
+npm install goldwasher-needle
+```
+
+## Options
+Options can be optionally passed in as the second parameter, as an object with a property ```goldwasher``` for goldwasher options and a property ```needle``` for needle options. For instance:
+
+```javascript
+var options = {
+    goldwasher: {
+        selector: 'h1'
+    },
+    needle: {
+        follow_max: 20
+    }
+}
+```
+
+Have a look at their respective doc pages for [goldwasher](https://www.npmjs.org/package/goldwasher) and [needle](https://www.npmjs.org/package/needle) for options available.
+
+## Example
+```javascript
+var goldwasher = require('goldwasher');
+var goldwasherNeedle = require('goldwasher-needle');
+
+goldwasher.needle('http://www.google.com', function(error, result) {
+  console.log(result);
+});
+```
+
+## Advanced example
+```javascript
+var goldwasher = require('goldwasher');
+var goldwasherNeedle = require('goldwasher-needle');
+
+var url = 'http://www.google.com';
+var options = {
+  goldwasher: {
+    selector: 'h1, h2, h3, h4, h5, h6, p'
+  }
+};
+
+goldwasher.needle(url, options, function(error, result) {
+  console.log(result);
+});
+```
