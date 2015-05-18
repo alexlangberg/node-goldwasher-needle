@@ -1,6 +1,6 @@
 {
   "name": "goldwasher-needle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin for goldwasher to add needle for easy HTTP requests.",
   "main": "index.js",
   "scripts": {
