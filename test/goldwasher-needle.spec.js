@@ -43,6 +43,24 @@ describe('running', function() {
       response.statusCode.should.equal(200);
       result.should.be.an('array');
       result.length.should.be.greaterThan(0);
+      result[0].source.should.not.equal(null);
+      done();
+    });
+  });
+
+  it('can request and goldwash a site with options', function(done) {
+    var options = {
+      goldwasher: {
+        selector: 'h1, h2, h3, h4, h5, h6, p'
+      }
+    };
+
+    goldwasher.needle(url, options, function(error, result, response) {
+      should.not.exist(error);
+      response.statusCode.should.equal(200);
+      result.should.be.an('array');
+      result.length.should.be.greaterThan(0);
+      result[0].source.should.not.equal(null);
       done();
     });
   });
