@@ -82,7 +82,7 @@ describe('failures', function() {
 
     goldwasher.needle(url, options, function(error, result, response) {
       should.exist(error);
-      response.statusCode.should.equal(302);
+      response.statusCode.should.be.within(301, 302);
       done();
     });
   });
