@@ -13,6 +13,10 @@ Plugin for [goldwasher](https://www.npmjs.org/package/goldwasher) to add [needle
 ```
 npm install goldwasher-needle
 ```
+If you haven't already downloaded [goldwasher](https://www.npmjs.org/package/goldwasher), you need to install this too, to run the example:
+```
+npm install goldwasher
+```
 
 ## Options
 Options can be optionally passed in as the second parameter, as an object with a property ```goldwasher``` for goldwasher options and a property ```needle``` for needle options. For instance:
