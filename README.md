@@ -1,5 +1,5 @@
 # node-goldwasher-needle
-[![npm version](http://img.shields.io/npm/v/node-goldwasher-needle.svg)](https://www.npmjs.org/package/node-goldwasher-needle)
+[![npm version](http://img.shields.io/npm/v/goldwasher-needle.svg)](https://www.npmjs.org/package/goldwasher-needle)
 [![Build Status](http://img.shields.io/travis/alexlangberg/node-goldwasher-needle.svg)](https://travis-ci.org/alexlangberg/node-goldwasher-needle)
 [![Coverage Status](http://img.shields.io/coveralls/alexlangberg/node-goldwasher-needle.svg)](https://coveralls.io/r/alexlangberg/node-goldwasher-needle?branch=master)
 [![Code Climate](http://img.shields.io/codeclimate/github/alexlangberg/node-goldwasher-needle.svg)](https://codeclimate.com/github/alexlangberg/node-goldwasher-needle)
@@ -7,7 +7,7 @@
 [![Dependency Status](https://david-dm.org/alexlangberg/node-goldwasher-needle.svg)](https://david-dm.org/alexlangberg/node-goldwasher-needle)
 [![devDependency Status](https://david-dm.org/alexlangberg/node-goldwasher-needle/dev-status.svg)](https://david-dm.org/alexlangberg/node-goldwasher-needle#info=devDependencies)
 
-Plugin for [goldwasher](https://www.npmjs.org/package/goldwasher) to add [needle](https://www.npmjs.org/package/needle) for easy HTTP requests. Requires [goldwasher](https://www.npmjs.org/package/goldwasher) to work.
+Plugin for [goldwasher](https://www.npmjs.org/package/goldwasher) to add [needle](https://www.npmjs.org/package/needle) for easy HTTP requests. Requires [goldwasher](https://www.npmjs.org/package/goldwasher) to work. If you want to run this as a web server/service, have a look at the module [hapi-goldwasher](https://www.npmjs.com/package/hapi-goldwasher).
 
 ## Installation
 ```
