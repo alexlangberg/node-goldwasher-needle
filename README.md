@@ -6,6 +6,7 @@
 
 [![Dependency Status](https://david-dm.org/alexlangberg/node-goldwasher-needle.svg)](https://david-dm.org/alexlangberg/node-goldwasher-needle)
 [![devDependency Status](https://david-dm.org/alexlangberg/node-goldwasher-needle/dev-status.svg)](https://david-dm.org/alexlangberg/node-goldwasher-needle#info=devDependencies)
+[![peerDependency Status](https://david-dm.org/alexlangberg/node-goldwasher-needle/peer-status.svg)](https://david-dm.org/alexlangberg/node-goldwasher-needle#info=peerDependencies)
 
 Plugin for [goldwasher](https://www.npmjs.org/package/goldwasher) to add [needle](https://www.npmjs.org/package/needle) for easy HTTP requests. Requires [goldwasher](https://www.npmjs.org/package/goldwasher) to work. If you want to run this as a web server/service, have a look at the module [hapi-goldwasher](https://www.npmjs.com/package/hapi-goldwasher).
 
