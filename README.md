@@ -14,10 +14,6 @@ Plugin for [goldwasher](https://www.npmjs.org/package/goldwasher) to add [needle
 ```
 npm install goldwasher-needle
 ```
-If you haven't already downloaded [goldwasher](https://www.npmjs.org/package/goldwasher), you need to install this too, to run the example:
-```
-npm install goldwasher
-```
 
 ## Options
 Options can be optionally passed in as the second parameter, as an object with a property ```goldwasher``` for goldwasher options, a property ```needle``` for needle options and a property ```retry``` for retry options. For instance:
@@ -40,18 +36,16 @@ Have a look at their respective doc pages for [goldwasher](https://www.npmjs.org
 
 ## Example
 ```javascript
-var goldwasher = require('goldwasher');
-var goldwasherNeedle = require('goldwasher-needle');
+var gn = require('goldwasher-needle');
 
-goldwasher.needle('http://www.google.com', function(error, result) {
+gn('http://www.google.com', function(error, result) {
   console.log(result);
 });
 ```
 
 ## Advanced example
 ```javascript
-var goldwasher = require('goldwasher');
-var goldwasherNeedle = require('goldwasher-needle');
+var gn = require('goldwasher-needle');
 
 var url = 'http://www.google.com';
 var options = {
@@ -60,7 +54,7 @@ var options = {
   }
 };
 
-goldwasher.needle(url, options, function(error, result) {
+gn(url, options, function(error, result) {
   console.log(result);
 });
 ```
