@@ -22,7 +22,6 @@
     "chai": "^3.2.0",
     "chai-things": "^0.2.0",
     "coveralls": "^2.11.2",
-    "goldwasher": "^5.0.5",
     "gulp": "^3.8.11",
     "gulp-batch": "^1.0.5",
     "gulp-coveralls": "^0.1.4",
@@ -47,11 +46,9 @@
   },
   "homepage": "https://github.com/alexlangberg/node-goldwasher-needle",
   "dependencies": {
+    "goldwasher": "^5.0.5",
     "needle": "^0.10.0",
     "ramda": "^0.17.1",
     "retry": "^0.7.0"
-  },
-  "peerDependencies": {
-    "goldwasher": ">= 4.x"
   }
 }

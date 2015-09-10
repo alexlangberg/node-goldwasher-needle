@@ -4,10 +4,9 @@
 var chai = require('chai');
 chai.use(require('chai-things'));
 var should = chai.should();
-var goldwasher = require('goldwasher');
-var goldwasherNeedle = require('../lib/goldwasher-needle');
 var http = require('http');
 var R = require('ramda');
+var gn = require('../lib/goldwasher-needle');
 var defaultOptions = {
   retry: {
     minTimeout: 0,
@@ -61,13 +60,8 @@ after(function() {
 
 describe('initialization', function() {
 
-  it('loads', function(done) {
-    goldwasher.should.have.property('needle');
-    done();
-  });
-
   it('loads without options', function(done) {
-    goldwasher.needle(url, function(error, result, response) {
+    gn(url, function(error, result, response) {
       done();
     });
   });
@@ -79,7 +73,7 @@ describe('initialization', function() {
       }
     };
 
-    goldwasher.needle(url, options, function(error, result, response) {
+    gn(url, options, function(error, result, response) {
       done();
     });
   });
@@ -89,7 +83,7 @@ describe('initialization', function() {
 describe('running', function() {
 
   it('can request and goldwash a site', function(done) {
-    goldwasher.needle(url, function(error, result, response) {
+    gn(url, function(error, result, response) {
       should.not.exist(error);
       response.statusCode.should.equal(200);
       result.should.be.an('array');
@@ -106,7 +100,7 @@ describe('running', function() {
       }
     };
 
-    goldwasher.needle(url, options, function(error, result, response) {
+    gn(url, options, function(error, result, response) {
       should.not.exist(error);
       response.statusCode.should.equal(200);
       result.should.be.an('array');
@@ -123,7 +117,7 @@ describe('running', function() {
       }
     };
 
-    goldwasher.needle(url, options, function(error, result, response) {
+    gn(url, options, function(error, result, response) {
       should.not.exist(error);
       response.statusCode.should.equal(200);
       result.should.be.a('string');
@@ -136,7 +130,7 @@ describe('running', function() {
 describe('failures', function() {
 
   it('handles errors from needle', function(done) {
-    goldwasher.needle('foo', defaultOptions, function(error, result, response) {
+    gn('foo', defaultOptions, function(error, result, response) {
       should.exist(error);
       done();
     });
@@ -150,7 +144,7 @@ describe('failures', function() {
     });
     var url = serverUrl + '/301';
 
-    goldwasher.needle(url, options, function(error, result, response) {
+    gn(url, options, function(error, result, response) {
       should.exist(error);
       response.statusCode.should.be.within(301, 302);
       done();
@@ -159,7 +153,7 @@ describe('failures', function() {
 
   it('throws on 404', function(done) {
     var url = serverUrl + '/404';
-    goldwasher.needle(url, defaultOptions, function(error, result, response) {
+    gn(url, defaultOptions, function(error, result, response) {
       should.exist(error);
       response.statusCode.should.equal(404);
       done();
@@ -173,7 +167,7 @@ describe('failures', function() {
       }
     });
 
-    goldwasher.needle(url, options, function(error, result, response) {
+    gn(url, options, function(error, result, response) {
       should.exist(error);
       done();
     });
@@ -183,7 +177,7 @@ describe('failures', function() {
 describe('retrying', function() {
 
   it('can retry on failure', function(done) {
-    goldwasher.needle(
+    gn(
       serverUrl + '/thirdtimeacharm',
       defaultOptions,
       function(error, result) {
