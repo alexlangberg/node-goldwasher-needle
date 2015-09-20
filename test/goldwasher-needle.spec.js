@@ -47,6 +47,11 @@ before(function(done) {
         response.end('<p>Hello World</p>');
       }
     }
+
+    if (request.url === '/json') {
+      response.writeHead(200, {'Content-Type': 'application/json'});
+      response.end(JSON.stringify({'foo': 'bar'}));
+    }
   }).listen(1337);
 
   server.on('listening', function() {
@@ -168,6 +173,14 @@ describe('failures', function() {
     });
 
     gn(url, options, function(error, result, response) {
+      should.exist(error);
+      done();
+    });
+  });
+
+  it('throws correctly on error from goldwasher', function(done) {
+    var url = serverUrl + '/json';
+    gn(url, defaultOptions, function(error) {
       should.exist(error);
       done();
     });
