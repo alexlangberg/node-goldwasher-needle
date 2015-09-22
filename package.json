@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "better-console": "^0.2.4",
-    "chai": "^3.2.0",
+    "chai": "^3.3.0",
     "chai-things": "^0.2.0",
     "coveralls": "^2.11.2",
     "gulp": "^3.8.11",
@@ -30,9 +30,9 @@
     "gulp-jshint": "^1.11.0",
     "gulp-mocha": "^2.1.0",
     "gulp-spawn-mocha": "^2.0.1",
-    "istanbul": "^0.3.14",
+    "istanbul": "^0.3.20",
     "jshint-stylish": "^2.0.0",
-    "mocha": "^2.2.4"
+    "mocha": "^2.3.3"
   },
   "directories": {
     "test": "test"
@@ -46,9 +46,9 @@
   },
   "homepage": "https://github.com/alexlangberg/node-goldwasher-needle",
   "dependencies": {
-    "goldwasher": "^5.0.5",
+    "goldwasher": "^5.1.0",
     "needle": "^0.10.0",
     "ramda": "^0.17.1",
-    "retry": "^0.7.0"
+    "retry": "^0.8.0"
   }
 }
