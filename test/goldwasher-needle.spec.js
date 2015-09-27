@@ -180,7 +180,8 @@ describe('failures', function() {
 
   it('throws correctly on error from goldwasher', function(done) {
     var url = serverUrl + '/json';
-    gn(url, defaultOptions, function(error) {
+    gn(url, defaultOptions, function(error, result) {
+      result.should.equal(url);
       should.exist(error);
       done();
     });
