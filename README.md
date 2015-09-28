@@ -24,7 +24,8 @@ var options = {
         selector: 'h1'
     },
     needle: {
-        follow_max: 20
+        follow_max: 20,
+        read_timeout: 30000
     },
     retry: {
         retries: 3
