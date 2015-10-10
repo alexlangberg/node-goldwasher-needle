@@ -52,6 +52,16 @@ before(function(done) {
       response.writeHead(200, {'Content-Type': 'application/json'});
       response.end(JSON.stringify({'foo': 'bar'}));
     }
+
+    if (request.url === '/onlyfulldocument') {
+      response.writeHead(200, {'Content-Type': 'text/plain'});
+      response.end('<html><body><p>Incomplete</p>');
+    }
+
+    if (request.url === '/fulldocument') {
+      response.writeHead(200, {'Content-Type': 'text/plain'});
+      response.end('<html><body><p>Incomplete</p></body></html>');
+    }
   }).listen(1337);
 
   server.on('listening', function() {
@@ -130,6 +140,23 @@ describe('running', function() {
     });
   });
 
+  it('can request and goldwash a full document', function(done) {
+    var options = {
+      goldwasherNeedle: {
+        onlyFullDocument: true
+      }
+    };
+
+    gn(serverUrl + '/fulldocument', options, function(error, result, response) {
+      should.not.exist(error);
+      response.statusCode.should.equal(200);
+      result.should.be.an('array');
+      result.length.should.be.greaterThan(0);
+      result[0].source.should.not.equal(null);
+      done();
+    });
+  });
+
 });
 
 describe('failures', function() {
@@ -183,6 +210,21 @@ describe('failures', function() {
     gn(url, defaultOptions, function(error, result) {
       result.should.equal(url);
       should.exist(error);
+      done();
+    });
+  });
+
+  it('throws on incomplete document option', function(done) {
+    var url = serverUrl + '/onlyfulldocument';
+    var options = R.merge(defaultOptions, {
+      goldwasherNeedle: {
+        onlyFullDocument: true
+      }
+    });
+
+    gn(url, options, function(error, result) {
+      should.exist(error);
+      result.should.equal(url);
       done();
     });
   });
