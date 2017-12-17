@@ -1,7 +1,6 @@
 'use strict';
 
-var goldwasher = require('goldwasher');
-var goldwasherNeedle = require('./lib/goldwasher-needle');
+var goldwasher = require('./');
 
 var url = 'http://www.google.com';
 var options = {
@@ -10,6 +9,6 @@ var options = {
   }
 };
 
-goldwasher.needle(url, options, function(error, result) {
+goldwasher(url, options, function(error, result) {
   console.log(result);
 });
